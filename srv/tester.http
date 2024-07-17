@@ -1,0 +1,105 @@
+###get the service document
+http://localhost:4004/odata/v4/CatalogService
+
+# ##get service metadata document
+
+#  http://localhost:4004/odata/v4/CatalogService/$metadata
+
+# #get all employee data
+
+# http://localhost:4004/odata/v4/CatalogService/EmployeeSet/$count
+
+# ##get single employee data with id
+
+# http://localhost:4004/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C197A7FB
+
+
+# ##get the total count of all employee
+
+# http://localhost:4004/odata/v4/CatalogService/EmployeeSet/$count
+
+# ##get data for pagination $Top and $skip
+
+# http://localhost:4004/odata/v4/CatalogService/EmployeeSet?top=2&$skip=5
+
+# http://localhost:4004/odata/v4/CatalogService/EmployeeSet/Dummy
+
+## get data by using filter
+# http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=bankName eq 'My Bank of New York'.
+
+##get the products data from cds view
+# http://localhost:4004/odata/v4/CatalogService/Products
+
+##get products data from id
+# http://localhost:4004/odata/v4/CatalogService/Products/74867AD200E41EDBA5D8B06B26EC2052
+
+##get the order where this product is used - lazy loading
+
+# http://localhost:4004/odata/v4/CatalogService/Products/74867AD200E41EDBA5D8B06B26EC2052?$expand=To_Items
+
+#creating the employee data with our data payload --post
+
+# POST  http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+# Content-Type: application/json
+
+# {
+    
+#       "nameFirst": "Christiano",
+#       "nameMiddle": null,
+#       "nameLast": "Ronaldo",
+#       "nameInitials": null,
+#       "sex": "M",
+#       "language": "E",
+#       "phoneNumber": null,
+#       "email": "ronaldocr7@gmail.com",
+#       "loginName": "GORDONR",
+#       "Currency_code": "USD",
+#       "salaryAmount": 81463,
+#       "accountNumber": "2233445566",
+#       "bankId": "26005885",
+#       "bankName": "yes bee eye"
+    
+# }
+
+
+# getting the data that we created with our data payload
+
+# GET http://localhost:4004/odata/v4/CatalogService/EmployeeSet/2723f838-0a3f-4a85-956f-f605a8f45e21
+
+
+## Update the employee data -- PATCH
+
+# PATCH http://localhost:4004/odata/v4/CatalogService/EmployeeSet/33513744-29a1-4fef-8fec-85fd90a6bbbb
+# Content-Type: application/json
+
+# {
+# "salaryAmount": 10000,
+# "Currency_code": "EUR"
+# }
+
+# DELETE http://localhost:4004/odata/v4/CatalogService/EmployeeSet/33513744-29a1-4fef-8fec-85fd90a6bbbb
+
+## GETTING THE DATA FROM PO
+
+# GET http://localhost:4004/odata/v4/CatalogService/POs
+
+## getting the single data from POs
+# GET http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC36052
+
+# POST http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC36052/CatalogService.boost
+# Content-Type: application/json
+
+#  {}
+
+# ----------------------------------------------------------------------
+###get the service document  ---- v2
+
+http://localhost:4004/v2/odata/v4/CatalogService
+
+# ##get service metadata document   ----------v2
+
+http://localhost:4004/v2/odata/v4/CatalogService/$metadata
+
+# #get all employee data           ------------v2
+
+http://localhost:4004/v2/odata/v4/CatalogService/EmployeeSet/$count
