@@ -1,6 +1,6 @@
 using { anubhav.db.master , anubhav.db.transaction } from '../db/datamodel';
 using { cappo.cds } from '../db/CDSView';
-
+ 
 service CatalogService @(path: 'CatalogService'){
     entity ProductSet as projection on master.product;
     entity BusinessPartnerSet as projection on master.businesspartner;
@@ -32,7 +32,7 @@ service CatalogService @(path: 'CatalogService'){
         action boost() returns POs
     };
     function largestOrder() returns array of POs;
-    // definition of the 
+    // definition of the
     function getOrderDefaults() returns POs;
     entity POItems as projection on transaction.poitems
     // entity Products as projection on cds.CDSViews.ProductView;
